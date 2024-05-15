@@ -13,12 +13,11 @@ createApp({
     methods:{
         //importo api boolean mail 
         f_mail(){
-            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response)=>  {
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then((response)=>  {
                 const result=response.data;
                 console.log(result.response)
-                
-                return result.response;
-              
+                this.listaMail.push(result.response)    
             })
         }
 
@@ -28,7 +27,6 @@ createApp({
         for (let i = 1; i <=10; i++) {
             let element= this.f_mail();
             
-            this.listaMail.push(element)
         }
 
         console.log(this.listaMail)
